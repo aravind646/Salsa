@@ -34,6 +34,7 @@ app.get('/', routes.index);
 app.post('/fb',routes.fb);
 app.post('/reddit',routes.essay);
 app.get('/people',routes.people);
+app.get('/person',routes.person);
 app.get('/compare',routes.compare);
 
 app.options('/fb',function(req,res){res.writeHead(200);res.end();})

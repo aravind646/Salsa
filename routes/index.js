@@ -97,3 +97,17 @@ exports.people = function (req, res) {
 exports.compare = function (req, res) {
 
 };
+
+exports.person = function (req, res) {
+    var id = req.body.id;
+
+    var retrieve_req = new cps.RetrieveRequest(id);
+    cpsConn.sendRequest(retrieve_req, function (err, retrieve_resp) {
+        if (err) return console.log(err);
+        res.statusCode = 201;
+        res.json(retrieve_resp.results.document[0].id);
+    }, 'json');
+
+
+};
+
