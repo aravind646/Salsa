@@ -1,0 +1,15 @@
+---
+declared-services:
+  personality-insights-service:
+    label: personality_insights
+    plan: 'IBM Watson Personality Insights Monthly Plan'
+
+applications:
+- disk_quota: 1024M
+  name: Salsa-personality
+  command: node app.js
+  path: .
+  instances: 1
+  memory: 256M
+  services:
+    - personality-insights-service
