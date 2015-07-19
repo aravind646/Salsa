@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var routes = require('./routes/');
 var app = express();
 
@@ -31,6 +32,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
 app.post('/fb',routes.fb);
+app.post('/reddit',routes.essay);
+app.get('/people',routes.people);
+app.get('/compare',routes.compare);
+
+app.options('/fb',function(req,res){res.writeHead(200);res.end();})
+app.options('/reddit',function(req,res){res.writeHead(200);res.end();})
 
 var appEnv = cfenv.getAppEnv();
 // catch 404 and forward to error handler
