@@ -11,7 +11,6 @@ var personality_insights = watson.personality_insights({
 exports.index = function (req, res) {
 
     var cpsConn = new cps.Connection(  'tcp://cloud-us-0.clusterpoint.com:9007',  'user',     'root',    'aaa','document','document/id', {account: 100884});
-
     //Data
     var FB = '{"id":"dsd7944472d87wew1252","name":"Kirill Mangutov","posts":["California is pretty cool","Jello"]}';
     var json = JSON.parse(FB);
@@ -35,8 +34,7 @@ exports.index = function (req, res) {
             cpsConn.sendRequest(insert_request, function(err, insert_response) {
                 if (err) return console.error(err);
                 console.log('New user registered: ');});
-
-            res.render('index');
+                res.render('index');
         });
 };
 
