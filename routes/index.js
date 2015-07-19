@@ -2,15 +2,17 @@ var cps = require('cps-api');
 var watson = require('watson-developer-cloud');
 
 var personality_insights = watson.personality_insights({
-    username: '8d119473-86a5-4cc4-8da8-e483a88f0397',
-    password: 'gV6O9XgYRqXQ',
+    username: '237f1e66-ca5a-474e-b3c7-45d3701f0439',
+    password: 'rqpcXciWeYR7',
     version: 'v2'
 });
 
 
 exports.index = function (req, res) {
 
+
     var cpsConn = new cps.Connection(  'tcp://cloud-us-0.clusterpoint.com:9007',  'user',     'root',    'aaa','document','document/id', {account: 100884});
+
     //Data
     var FB = '{"id":"dsd7944472d87wew1252","name":"Kirill Mangutov","posts":["California is pretty cool","Jello"]}';
     var json = JSON.parse(FB);
@@ -34,7 +36,11 @@ exports.index = function (req, res) {
             cpsConn.sendRequest(insert_request, function(err, insert_response) {
                 if (err) return console.error(err);
                 console.log('New user registered: ');});
-                res.render('index');
+
+            res.render('index');
         });
 };
 
+exports.fb = function (req, res) {
+  res.render('index');
+};
