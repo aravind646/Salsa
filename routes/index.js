@@ -100,6 +100,7 @@ exports.compare = function (req, res) {
 
 exports.person = function (req, res) {
     var id = req.body.id;
+    console.log(id);
 
     var retrieve_req = new cps.RetrieveRequest(id);
     cpsConn.sendRequest(retrieve_req, function (err, retrieve_resp) {

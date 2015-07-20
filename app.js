@@ -15,8 +15,6 @@ var allowCrossDomain = function(req, res, next) {
   next();
 };
 app.use(allowCrossDomain);
-
-
 // view engine setup
 app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, 'views'));
